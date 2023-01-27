@@ -19,3 +19,12 @@ def products_list(request):
     serializer.save()
     return Response(serializer.data, status=status.HTTP_201_CREATED)
    
+@api_view(['GET'])
+def products_detail(request, pk):
+    try:
+        product = Products.objects.get(pk=pk)
+        serializer = Productsserializer(product)
+        return Response(serializer.data)
+
+    except Products.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND);
