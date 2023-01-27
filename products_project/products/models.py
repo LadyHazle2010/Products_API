@@ -8,5 +8,3 @@ class Products(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     inventory_quantity = models.IntegerField()
 
-
-    
